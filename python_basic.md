@@ -1,107 +1,202 @@
-# Python Examples: Basic to Advanced
+# Python Concepts: From Basic to Advanced
 
-## **Basic Python**
+## 1. **Operators**
 
-### 1. Printing Output
-
-```
-print("Hello, World!")
-```
-Prints text to the console.
-
-### 2. Variables and Data Types
-```
-name = "Alice"
-age = 25
-```
-Stores data in variables with different types (string, integer).
-
-### 3. Conditionals
+### Arithmetic Operators
 
 ```
-if age > 18:
+a = 10
+b = 5
+print(a + b)  # Addition
+print(a - b)  # Subtraction
+print(a * b)  # Multiplication
+print(a / b)  # Division
+print(a % b)  # Modulus
+```
+Performs basic arithmetic operations.
+
+### Comparison Operators
+
+```
+a = 10
+b = 5
+print(a > b)   # Greater than
+print(a == b)  # Equal to
+print(a != b)  # Not equal to
+```
+Compares values to return a boolean.
+
+### Logical Operators
+
+```
+x = True
+y = False
+print(x and y)  # Logical AND
+print(x or y)   # Logical OR
+print(not x)    # Logical NOT
+```
+Used to perform logical operations.
+
+## 2. Conditions
+### Basic If-Else Statement
+
+```
+age = 20
+if age >= 18:
     print("Adult")
 else:
     print("Minor")
 ```
-Executes code based on conditions.
+Checks if a condition is true or false.
 
-### 4. Loops
+### Elif Example
+
+```
+age = 15
+if age >= 18:
+    print("Adult")
+elif age >= 13:
+    print("Teenager")
+else:
+    print("Child")
+```
+Handles multiple conditions.
+
+## 3. Loops
+### For Loop
 
 ```
 for i in range(5):
     print(i)
 ```
-Loops through numbers from 0 to 4.
+Loops through a sequence or range.
 
-### 5. Functions
+### While Loop
+
+```
+i = 0
+while i < 5:
+    print(i)
+    i += 1
+```
+Executes code while a condition is true.
+
+### Break and Continue
+
+```
+for i in range(5):
+    if i == 3:
+        break  # Exits the loop
+    print(i)
+    
+for i in range(5):
+    if i == 3:
+        continue  # Skips this iteration
+    print(i)
+```
+Control flow to break or skip iterations.
+
+## 4. Lists
+### Creating and Accessing Lists
+
+```
+fruits = ["apple", "banana", "cherry"]
+print(fruits[0])  # Accesses the first element
+```
+Stores multiple items in an ordered sequence.
+
+### List Methods
+
+```
+fruits.append("orange")
+fruits.remove("banana")
+print(fruits)
+```
+Common operations like adding/removing items.
+
+### List Slicing
+
+```
+numbers = [0, 1, 2, 3, 4, 5]
+print(numbers[1:4])  # Extracts a sublist
+```
+Access a range of elements in a list.
+
+## 5. Tuples
+### Creating and Accessing Tuples
+
+```
+coordinates = (10, 20)
+print(coordinates[0])  # Accesses first element
+```
+Stores multiple items in an ordered, immutable sequence.
+
+### Tuple Unpacking
+
+```
+x, y = coordinates
+print(x, y)
+```
+Assigns elements of a tuple to variables.
+
+## 6. Sets
+### Creating and Accessing Sets
+
+```
+fruits = {"apple", "banana", "cherry"}
+fruits.add("orange")
+print(fruits)
+```
+Unordered collection with no duplicates.
+
+### Set Operations
+
+```
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+print(set1 & set2)  # Intersection
+print(set1 | set2)  # Union
+```
+Set operations like intersection and union.
+
+## 7. Dictionaries
+### Creating and Accessing Dictionaries
+
+```
+person = {"name": "Alice", "age": 25}
+print(person["name"])
+```
+Stores data in key-value pairs.
+
+### Dictionary Methods
+
+```
+person["city"] = "New York"  # Adds new key-value pair
+del person["age"]  # Removes key-value pair
+print(person)
+```
+Manipulates dictionary entries.
+
+## 8. Functions
+### Defining Functions
 
 ```
 def greet(name):
     return f"Hello, {name}!"
 print(greet("Alice"))
 ```
-Defines and calls a function.
+Defines a function that performs a specific task.
 
-### 6. List Comprehension
-
-```
-squares = [x**2 for x in range(5)]
-```
-Creates a list by applying an operation to each element.
-
-## **Intermediate Python**
-### 1. File Handling
+### Default Arguments
 
 ```
-with open("example.txt", "w") as file:
-    file.write("Hello, World!")
+def greet(name, age=25):
+    return f"Hello, {name}. You are {age} years old."
+print(greet("Bob"))
 ```
-Writes data to a file.
+Defines functions with default argument values.
 
-### 2. Error Handling
-
-```
-try:
-    result = 10 / 0
-except ZeroDivisionError:
-    print("Cannot divide by zero!")
-```
-Handles errors gracefully.
-
-### 3. Classes and Objects
-
-```
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-
-    def introduce(self):
-        return f"My name is {self.name}."
-alice = Person("Alice", 25)
-print(alice.introduce())
-```
-Implements object-oriented programming with classes.
-
-### 4. List Slicing
-
-```
-lst = [1, 2, 3, 4, 5]
-print(lst[1:4])
-```
-Extracts a portion of a list.
-
-### 5. Dictionary Operations
-
-```
-data = {"name": "Alice", "age": 25}
-print(data.get("name"))
-```
-Works with key-value pairs.
-
-## **Advanced Python**
-###1. Lambda Functions
+### Lambda Functions
 
 ```
 add = lambda x, y: x + y
@@ -109,7 +204,90 @@ print(add(5, 3))
 ```
 Creates anonymous functions for simple operations.
 
-### 2. Decorators
+## 9. Comprehensions
+### List Comprehension
+
+```
+squares = [x**2 for x in range(5)]
+print(squares)
+```
+Generates a new list by applying an operation to each element.
+
+### Dictionary Comprehension
+
+```
+squared_dict = {x: x**2 for x in range(5)}
+print(squared_dict)
+```
+Creates dictionaries using a comprehension.
+
+### Set Comprehension
+
+```
+unique_numbers = {x for x in range(5)}
+print(unique_numbers)
+```
+Creates sets using comprehension.
+
+## 10. Additional Important Topics
+### Exception Handling (Try-Except)
+
+```
+try:
+    x = 10 / 0
+except ZeroDivisionError as e:
+    print(f"Error: {e}")
+```
+Catches and handles errors to prevent program crashes.
+
+### Working with Files
+
+```
+with open("example.txt", "w") as file:
+    file.write("Hello, World!")
+```
+Reads/writes data to/from files.
+
+### Classes and Objects
+
+```
+class Dog:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+
+dog1 = Dog("Buddy", "Golden Retriever")
+print(dog1.name)
+```
+Defines and instantiates a class.
+
+### Iterators and Generators
+
+```
+def count_up_to(n):
+    count = 1
+    while count <= n:
+        yield count
+        count += 1
+
+for number in count_up_to(5):
+    print(number)
+```
+Generates values one at a time with yield.
+
+### Regular Expressions
+
+```
+import re
+pattern = r"\d+"
+text = "There are 12 apples and 34 bananas."
+matches = re.findall(pattern, text)
+print(matches)
+```
+Extracts patterns from strings using regular expressions.
+
+## 11. Advanced Python
+### Decorators
 
 ```
 def decorator(func):
@@ -125,36 +303,18 @@ def say_hello():
 
 say_hello()
 ```
-Extends the functionality of a function.
+Enhances the functionality of a function without modifying it.
 
-### 3. Generators
-
-```
-def count_up_to(n):
-    for i in range(n):
-        yield i
-for num in count_up_to(5):
-    print(num)
-```
-Generates values one at a time with yield.
-
-### 4. Comprehensions with Conditions
+### Context Managers
 
 ```
-even_squares = [x**2 for x in range(10) if x % 2 == 0]
-```
-Creates lists with conditional logic.
-
-### 5. Context Managers
-
-```
-with open("example.txt", "r") as file:
+with open("file.txt", "r") as file:
     content = file.read()
 print(content)
 ```
-Manages resources like file handling efficiently.
+Manages resources automatically (e.g., file handling).
 
-### 6. Multithreading
+### Multithreading
 
 ```
 import threading
@@ -167,38 +327,9 @@ thread = threading.Thread(target=print_numbers)
 thread.start()
 thread.join()
 ```
-Executes tasks concurrently using threads.
+Executes multiple tasks simultaneously.
 
-### 7. Regular Expressions
-
-```
-import re
-pattern = r"\d+"
-result = re.findall(pattern, "There are 12 apples and 34 bananas.")
-print(result)
-```
-Extracts patterns from strings using regex.
-
-### 8. Working with JSON
-
-```
-import json
-data = {"name": "Alice", "age": 25}
-json_string = json.dumps(data)
-print(json_string)
-```
-Serializes Python objects into JSON format.
-
-### 9. Itertools
-
-```
-from itertools import combinations
-items = [1, 2, 3]
-print(list(combinations(items, 2)))
-```
-Generates combinations or permutations of data.
-
-### 10. Unit Testing
+### Unit Testing
 
 ```
 import unittest
@@ -213,4 +344,4 @@ class TestMath(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main()
 ```
-Tests code functionality systematically.
+Tests the correctness of code with assertions.
