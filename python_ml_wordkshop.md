@@ -104,6 +104,58 @@ df = df.fillna(0)
 ```
 Fills missing values with 0.
 
+**Sorting values**
+
+```
+sorted_df = df.sort_values(by='Age', ascending=False)
+```
+Sorts the DataFrame by the 'Age' column in descending order.
+
+**GroupBy operations**
+
+```
+grouped = df.groupby('Age').sum()
+```
+Groups the data by 'Age' and calculates the sum for each group.
+
+**Renaming columns**
+
+```
+df = df.rename(columns={'Name': 'Full Name'})
+```
+Renames the column 'Name' to 'Full Name'.
+
+**Merging DataFrames**
+
+```
+df1 = pd.DataFrame({'ID': [1, 2], 'Name': ['Alice', 'Bob']})
+df2 = pd.DataFrame({'ID': [1, 2], 'Score': [85, 90]})
+merged = pd.merge(df1, df2, on='ID')
+```
+Merges two DataFrames on the 'ID' column.
+
+**Pivot Table**
+
+```
+pivot = df.pivot_table(values='Salary', index='Department', aggfunc='mean')
+```
+Creates a pivot table to summarize data.
+
+**Iterating through rows**
+
+```
+for index, row in df.iterrows():
+    print(row['Name'], row['Age'])
+```
+Iterates through rows of a DataFrame.
+
+**Checking for null values**
+
+```
+null_check = df.isnull().sum()
+```
+Counts the number of null values in each column.
+
 # Matplotlib
 **Line Plot**
 
